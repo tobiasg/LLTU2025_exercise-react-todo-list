@@ -10,11 +10,9 @@ html {
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  height: 100vh;
+  max-width: 600px;
+  width: 100%;
+  margin: 32px auto;
   background-color: #dadada;
   font-family: "Mozilla Text", sans-serif;
   color: #1f2023;

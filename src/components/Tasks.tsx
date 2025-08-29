@@ -1,14 +1,36 @@
-import type { ReactElement, ReactNode } from "react";
+import { type ReactElement, type ReactNode } from "react";
 import type { Task as TaskType } from "../types/task";
 import { Task } from "./Task";
+import { useList } from "../hooks/useList";
 
-interface TasksProps {
-  tasks: TaskType[];
-}
+interface TasksProps {}
 
-export const Tasks = ({ tasks }: TasksProps): ReactElement => {
+export const Tasks = ({}: TasksProps): ReactElement => {
+  const tasks = useList<TaskType>("tasks", []);
+
+  const completed = tasks.list.filter((task) => task.completed).length;
+
   const renderTasks = (): ReactNode => {
-    return tasks.map((task) => <Task task={task} key={task.id} />);
+    if (tasks.list.length === 0) {
+      return <section className="no-tasks">No tasks</section>;
+    }
+
+    return (
+      <>
+        <section className="list-info">
+          <span className="stats">
+            {completed} / {tasks.list.length}
+          </span>{" "}
+          &bull; <span className="name">List name</span>
+        </section>
+        <section id="tasks">
+          {tasks.list.map((task) => (
+            <Task task={task} onRemove={tasks.remove} key={task.id} />
+          ))}
+        </section>
+      </>
+    );
   };
-  return <section id="tasks">{renderTasks()}</section>;
+
+  return <>{renderTasks()}</>;
 };

@@ -1,0 +1,11 @@
+.list-info {
+  padding-block: 1rem 0.2rem;
+}
+
+.list-info .stats {
+  color: #a2a2a2;
+}
+
+.list-info .name {
+  font-weight: bold;
+}
