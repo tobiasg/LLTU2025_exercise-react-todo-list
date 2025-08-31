@@ -1,0 +1,48 @@
+#new-task-form {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-block: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#new-task-form input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 24px;
+}
+
+#new-task-form button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+#new-task-form button:hover {
+  color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  #new-task-form {
+    background-color: #2e3440;
+    color: #eceff4;
+  }
+
+  #new-task-form button {
+    color: #d8dee9;
+  }
+
+  #new-task-form button:hover {
+    color: #fff;
+  }
+}
