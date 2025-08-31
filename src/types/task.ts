@@ -1,6 +1,7 @@
 export interface Task {
   id: string;
-  text: string;
+  author: string;
+  content: string;
   completed: boolean;
   createdAt: Date;
   updatedAt: Date;

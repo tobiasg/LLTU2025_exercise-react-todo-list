@@ -8,9 +8,18 @@
   gap: 0.5rem;
 }
 
+#tasks .task.completed {
+  background-color: #ebebeb;
+  color: #1f202373;
+}
+
 #tasks .task .task-actions {
   margin-left: auto;
   opacity: 0;
+}
+
+#tasks .task .task-actions span {
+  padding-inline: 0.8rem 0;
 }
 
 #tasks .task:hover .task-actions {
@@ -19,6 +28,16 @@
 
 #tasks article:hover {
   background-color: #ebebeb;
+}
+
+#tasks article .status {
+  color: #999;
+  cursor: pointer;
+}
+
+#tasks article .edit {
+  color: #999;
+  cursor: pointer;
 }
 
 #tasks article .delete {
@@ -38,6 +57,11 @@
 @media (prefers-color-scheme: dark) {
   #tasks .task {
     background-color: #2e3440;
+  }
+
+  #tasks .task.completed {
+    background-color: #27272b;
+    color: #d6d6d69b;
   }
 
   #tasks .task:hover {
