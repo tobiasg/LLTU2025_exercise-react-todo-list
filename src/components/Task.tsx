@@ -35,7 +35,7 @@ export const Task = ({ task, onUpdate, onRemove }: TaskProps): ReactElement => {
       <span className="material-symbols-outlined status" onClick={() => handleStatusToggle()}>
         {task.completed ? "check_box" : "check_box_outline_blank"}
       </span>
-      {task.content}
+      <p>{task.content}</p>
       <div className="task-actions">
         <span className="material-symbols-outlined edit">edit</span>
         <span className="material-symbols-outlined delete" onClick={() => onRemove(task)}>
