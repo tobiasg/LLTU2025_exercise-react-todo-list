@@ -63,6 +63,11 @@
   cursor: grabbing;
 }
 
+#tasks article .task-details {
+  color: #d6d6d69b;
+  font-size: 14xpx;
+}
+
 @media (prefers-color-scheme: dark) {
   #tasks .task,
   .add-task {
