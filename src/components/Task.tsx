@@ -47,18 +47,19 @@ export const Task = ({ task, onUpdate, onRemove }: TaskProps): ReactElement => {
       <div className="task-content-container">
         <div className="task-details">
           <p>
-            {task.author} &bull; {formattedCreatedAt}
+            {task.author} &bull; {formattedCreatedAt} &bull;{" "}
+            <span className={`priority priority-${task.priority}`}>{task.priority}</span>
           </p>
         </div>
         <p>{task.content}</p>
       </div>
 
       <div className="task-actions">
-        <span className="material-symbols-outlined edit">edit</span>
+        {/* <span className="material-symbols-outlined edit">edit</span> */}
         <span className="material-symbols-outlined delete" onClick={() => onRemove(task)}>
           delete
         </span>
-        <span className="material-symbols-outlined drag">drag_indicator</span>
+        {/* <span className="material-symbols-outlined drag">drag_indicator</span> */}
       </div>
     </article>
   );

@@ -1,6 +1,6 @@
 #tasks .empty-message {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 #tasks .task {
@@ -36,7 +36,7 @@
 }
 
 #tasks article:hover {
-  background-color: #ebebeb;
+  background-color: #1f202373;
 }
 
 #tasks article .status {
@@ -64,8 +64,25 @@
 }
 
 #tasks article .task-details {
-  color: #d6d6d69b;
-  font-size: 14xpx;
+  color: #1f202373;
+  font-size: 12px;
+}
+
+#tasks article .task-details .priority {
+  text-transform: capitalize;
+  padding: 0.1rem;
+}
+
+#tasks article .task-details .priority.priority-low {
+  color: #22c55e;
+}
+
+#tasks article .task-details .priority.priority-medium {
+  color: #f59e0b;
+}
+
+#tasks article .task-details .priority.priority-high {
+  color: #ef4444;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,5 +98,9 @@
 
   #tasks .task:hover {
     background-color: #4d576a;
+  }
+
+  #tasks article .task-details {
+    color: #d6d6d69b;
   }
 }

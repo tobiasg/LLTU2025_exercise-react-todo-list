@@ -8,6 +8,8 @@ interface TaskFormProps {
 
 export const TaskForm = ({ onAddTask }: TaskFormProps): ReactElement => {
   const [content, setContent] = useState("");
+  const [author, setAuthor] = useState("");
+  const [priority, setPriority] = useState<"low" | "medium" | "high">("low");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -16,29 +18,57 @@ export const TaskForm = ({ onAddTask }: TaskFormProps): ReactElement => {
 
     const newTask: TaskType = {
       id: uuidv4(),
-      author: "",
+      author: author,
       content: content,
       completed: false,
       createdAt: new Date(),
       updatedAt: new Date(),
-      priority: "low",
+      priority: priority,
     };
+
+    console.log(newTask);
 
     onAddTask(newTask);
     setContent("");
+    setAuthor("");
   };
 
   return (
     <>
       <form onSubmit={handleSubmit} id="new-task-form">
-        <input
-          type="text"
-          value={content}
-          onChange={(event) => setContent(event.target.value)}
-          placeholder="Add a task"
-          required
-        />
-        <button type="submit">Add</button>
+        <div className="task-content">
+          <input
+            type="text"
+            value={content}
+            onChange={(event) => setContent(event.target.value)}
+            placeholder="Add a task ..."
+            className="form-input content-input"
+            required
+          />
+          <input
+            type="text"
+            value={author}
+            onChange={(event) => setAuthor(event.target.value)}
+            placeholder="Enter your name ..."
+            className="form-input author-input"
+            required
+          />
+        </div>
+
+        <div className="form-controls">
+          <select
+            value={priority}
+            className="control-select"
+            onChange={(e) => setPriority(e.target.value as "low" | "medium" | "high")}
+          >
+            <option value="low">Low Priority</option>
+            <option value="medium">Medium Priority</option>
+            <option value="high">High Priority</option>
+          </select>
+          <button type="submit" className="add-button">
+            Add Task
+          </button>
+        </div>
       </form>
     </>
   );
